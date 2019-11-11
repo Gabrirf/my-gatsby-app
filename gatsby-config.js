@@ -7,6 +7,15 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    siteTitle: `Hello Universe !`
-  }
+    siteTitle: `Hello Universe !`,
+  },
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`,
+      },
+    },
+  ],
 }

@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
 export default () => {
@@ -10,8 +10,23 @@ export default () => {
             siteTitle
           }
         }
+        allFile {
+          edges {
+            node {
+              relativePath
+              prettySize
+              extension
+              birthTime(fromNow: true)
+            }
+          }
+        }
       }
     `
   )
-  return <div>{data.site.siteMetadata.siteTitle}</div>
+  return (
+    <>
+      <h1>{data.site.siteMetadata.siteTitle}</h1>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+    </>
+  )
 }
