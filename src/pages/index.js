@@ -20,6 +20,17 @@ export default () => {
             }
           }
         }
+        allMarkdownRemark {
+          nodes {
+            frontmatter {
+              title
+              date
+            }
+            excerpt
+            rawMarkdownBody
+            html
+          }
+        }
       }
     `
   )
