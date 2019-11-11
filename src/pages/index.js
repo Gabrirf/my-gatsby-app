@@ -1,3 +1,14 @@
-import React from "react"
+import { graphql } from 'gatsby';
+import React from 'react';
 
-export default () => <div>Hello world!</div>
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        siteTitle
+      }
+    }
+  }
+`
+
+export default ({ data }) => <div>{data.site.siteMetadata.siteTitle}</div>
