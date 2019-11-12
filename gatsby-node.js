@@ -8,7 +8,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: node.frontmatter.path ? null : slug,
+      value: slug,
     })
   }
 }
@@ -37,6 +37,9 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: node.frontmatter.path || node.fields.slug,
       component: path.resolve(`./src/pages/page.js`), // Template
+      context: {
+        slug: node.fields.slug,
+      },
     })
   })
 }
