@@ -1,13 +1,16 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
+import Layout from '../templates/layout';
+
+
 export default () => {
   const data = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
-            siteTitle
+            title
           }
         }
         allFile {
@@ -35,11 +38,8 @@ export default () => {
     `
   )
   return (
-    <>
-      <h1>{data.site.siteMetadata.siteTitle}</h1>
+    <Layout>
       <pre>{JSON.stringify(data, null, 2)}</pre>
-    </>
+    </Layout>
   )
 }
-
-export default () => <Layout>Hello world!</Layout>
