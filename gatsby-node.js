@@ -8,7 +8,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug,
+      value: node.frontmatter.path ? null : slug,
     })
   }
 }
@@ -24,6 +24,9 @@ exports.createPages = async ({ graphql, actions }) => {
             fields {
               slug
             }
+            frontmatter {
+              path
+            }
           }
         }
       }
@@ -32,11 +35,8 @@ exports.createPages = async ({ graphql, actions }) => {
   // For each Markdown file
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
-      path: node.fields.slug,
+      path: node.frontmatter.path || node.fields.slug,
       component: path.resolve(`./src/pages/page.js`), // Template
-      context: {
-        slug: node.fields.slug,
-      },
     })
   })
 }
