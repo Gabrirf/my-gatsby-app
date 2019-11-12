@@ -2,6 +2,7 @@
 title: "Another amazing markdown page"
 date: "2019-11-12"
 path: "path/new-page2"
+layout: "red-page"
 ---
 
 ### This is a third header

@@ -26,6 +26,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             frontmatter {
               path
+              layout
             }
           }
         }
@@ -34,9 +35,10 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
   // For each Markdown file
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const layout = node.frontmatter.layout || "page"
     createPage({
       path: node.frontmatter.path || node.fields.slug,
-      component: path.resolve(`./src/pages/page.js`), // Template
+      component: path.resolve(`./src/templates/${layout}.js`), // Template
       context: {
         slug: node.fields.slug,
       },
