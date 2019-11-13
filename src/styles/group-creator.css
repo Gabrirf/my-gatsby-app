@@ -1,0 +1,35 @@
+.group-list {
+  grid-area: list;
+}
+.group-form {
+  grid-area: form;
+}
+.group-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.group-container {
+  display: grid;
+  grid-template-areas: "list list form form";
+  grid-gap: 10px;
+  background-color: #2196f3;
+  padding: 10px;
+}
+
+.group-box-list {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  background-color: #21f3a3;
+  padding: 10px;
+}
+
+.group-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
