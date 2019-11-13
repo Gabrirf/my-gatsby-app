@@ -1,3 +1,3 @@
 import React from 'react';
 
-export default () => <>Group full list</>
+export default () => <div class="group-list">Group full list</div>

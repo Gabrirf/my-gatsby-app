@@ -1,3 +1,3 @@
 import React from 'react';
 
-export default () => <>Group form</>
+export default () => <div class="group-form">Group form</div>
