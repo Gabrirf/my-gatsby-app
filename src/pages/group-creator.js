@@ -34,10 +34,8 @@ class Group extends React.Component {
 
   async initData() {
     const { nGroups } = this.state
-    let elements = []
-    for (let i = 0; i < 30; i++) {
-      elements.push(i)
-    }
+    const elements = this.props.data.allDataJson.nodes[0].members
+
     let groupBoxes = []
     for (let i = 1; i <= nGroups; i++) {
       groupBoxes.push(<GroupBox key={i} number={i} />)
@@ -78,10 +76,20 @@ class Group extends React.Component {
           <GroupForm submit={this.randomize} />
         </div>
         <div className="group-box-list">{groupBoxes}</div>
-        <pre>{JSON.stringify(this.state, null, 2)}</pre>
       </Layout>
     )
   }
 }
 
 export default Group
+
+export const groupQuery = graphql`
+  query {
+    allDataJson {
+      nodes {
+        title
+        members
+      }
+    }
+  }
+`
