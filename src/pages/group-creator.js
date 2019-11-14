@@ -37,8 +37,8 @@ class Group extends React.Component {
     const elements = this.props.data.allDataJson.nodes[0].members
 
     let groupBoxes = []
-    for (let i = 1; i <= nGroups; i++) {
-      groupBoxes.push(<GroupBox key={i} number={i} />)
+    for (let i = 0; i < nGroups; i++) {
+      groupBoxes.push(<GroupBox key={i} number={i + 1} />)
     }
     this.setState({ elements, groupBoxes })
   }
