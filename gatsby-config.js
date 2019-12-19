@@ -24,6 +24,12 @@ module.exports = {
         path: `${__dirname}/src/data`,
       },
     },
+    {
+      resolve: "gatsby-plugin-tinacms",
+      options: {
+        plugins: [],
+      },
+    },
     `gatsby-transformer-remark`,
     `gatsby-transformer-json`,
   ],
