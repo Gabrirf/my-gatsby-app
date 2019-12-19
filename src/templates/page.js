@@ -1,7 +1,8 @@
 import { graphql } from 'gatsby';
+import { remarkForm } from 'gatsby-tinacms-remark';
 import React from 'react';
 
-export default ({ data }) => {
+const Page = ({ data }) => {
   const post = data.markdownRemark
   return (
     <div>
@@ -14,6 +15,9 @@ export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      fileRelativePath
+      rawFrontmatter
+      rawMarkdownBody
       frontmatter {
         title
       }
@@ -23,3 +27,4 @@ export const query = graphql`
     }
   }
 `
+export default remarkForm(Page)
