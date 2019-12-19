@@ -6,6 +6,8 @@ date: '2019-11-11'
 
 This is a paragraf
 
+Another **bold** paragraf
+
 ```javascript
 const code = "Some text here"
 ```
