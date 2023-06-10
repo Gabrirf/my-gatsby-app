@@ -14,7 +14,7 @@
     "heroku-postbuild": "gatsby build"
   },
   "dependencies": {
-    "gatsby": "^2.17.6",
+    "gatsby": "^4.25.7",
     "react": "^16.11.0",
     "react-dom": "^16.11.0"
   },
